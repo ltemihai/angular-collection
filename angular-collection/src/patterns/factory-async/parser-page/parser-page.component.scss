@@ -1,0 +1,21 @@
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+}
+button {
+  background-color: blueviolet !important;
+  color: gainsboro !important;
+  margin-right: 1rem;
+}
+
+mat-radio-group {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+textarea {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}

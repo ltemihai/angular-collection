@@ -1,0 +1,21 @@
+<div class="page">
+  <div>
+    <h1>Parser</h1>
+    <h3>Depending on what you select, you will parse different types of files</h3>
+
+    <mat-radio-group [(ngModel)]="option" (ngModelChange)="changeParser($event)">
+      <mat-radio-button [value]="ParserType.XML" >{{ParserType.XML}}</mat-radio-button>
+      <mat-radio-button [value]="ParserType.CSV">{{ParserType.CSV}}</mat-radio-button>
+    </mat-radio-group>
+
+    <div *ngIf="parserService">
+      <div>
+        <textarea [(ngModel)]="text"></textarea>
+      </div>
+      <button mat-flat-button (click)="parse()">Parse {{parserService.type}}</button>
+      <div>
+        <h3>{{parsedText}}</h3>
+      </div>
+    </div>
+  </div>
+</div>
