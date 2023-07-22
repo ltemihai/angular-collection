@@ -1,0 +1,6 @@
+<div *ngIf="car; else emptySpace" (click)="onCarRemoved.emit()">
+    {{lotNumber}} - {{car.name}} - {{car.type | titlecase }}
+</div>
+<ng-template #emptySpace>
+    {{lotNumber}} - {{parkingLotType | titlecase }}
+</ng-template>

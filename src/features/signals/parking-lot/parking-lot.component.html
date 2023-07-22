@@ -1,19 +1,27 @@
 <div class="parking-lot-container">
   <h2>Parking Lot Status</h2>
+  <h3>Remaining parking lots: {{remainingParkingLots()}}</h3>
   <div class="grid-container">
-
-    <div *ngFor="let lot of parkingLot().keys()" class="grid-item">
-      <div *ngIf="parkingLot().get(lot)?.car; else emptySpace" (click)="removeCarFromParkingLot(lot)">
-        {{lot}} - {{parkingLot().get(lot)?.car?.name}} - {{parkingLot().get(lot)?.car?.type | titlecase }}
-      </div>
-      <ng-template #emptySpace>
-        {{lot}} - {{parkingLot().get(lot)?.type | titlecase }}
-      </ng-template>
+    <div *ngFor="let lot of parkingLot().keys()"
+         class="grid-item"
+         [ngClass]="parkingLot().get(lot)?.car ? 'occupied' : ''">
+      <app-car-lot [car]="parkingLot().get(lot)?.car! "
+                   [lotNumber]="lot"
+                   (onCarRemoved)="removeCarFromParkingLot(lot)"
+                   [parkingLotType]="parkingLot().get(lot)?.type!"></app-car-lot>
     </div>
   </div>
-  <div class="cars">
-    <div *ngFor="let car of cars().values()" class="car" (click)="addCarToParkingLot(car)" >
+  <div class="cars" *ngIf="!isParkingFree(); else fullParkingLot" >
+    <div *ngFor="let car of cars().values()"
+         class="car"
+         [ngClass]="availableParkingLotsByType(car?.type) ? '' : 'disabled'"
+         (click)="addCarToParkingLot(car)" >
       {{car.name}} - {{car.type | titlecase }}
     </div>
   </div>
+  <ng-template #fullParkingLot>
+    <h2 class="full-park">
+      Parking Lot is Full
+    </h2>
+  </ng-template>
 </div>
