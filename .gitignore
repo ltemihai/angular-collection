@@ -40,3 +40,8 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+/.idea/.gitignore
+/.idea/angular-collection.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
