@@ -25,7 +25,7 @@ export class ParkingLotComponent {
     { id: 7, name: 'Chevrolet Bolt', color: 'Black', type: CarType.electric },
     { id: 8, name: 'Audi e-tron', color: 'Gray', type: CarType.electric },
     { id: 9, name: 'Mercedes-Benz C-Class', color: 'White', type: CarType.gas },
-    { id: 10, name: 'Kia Soul', color: 'Orange', type: CarType.gas },``
+    { id: 10, name: 'Kia Soul', color: 'Orange', type: CarType.gas },
   ]));
 
   public parkingLot = signal(new Map<number, ParkingLot>([
