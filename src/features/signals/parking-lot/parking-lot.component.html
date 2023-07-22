@@ -1,0 +1,19 @@
+<div class="parking-lot-container">
+  <h2>Parking Lot Status</h2>
+  <div class="grid-container">
+
+    <div *ngFor="let lot of parkingLot().keys()" class="grid-item">
+      <div *ngIf="parkingLot().get(lot)?.car; else emptySpace" (click)="removeCarFromParkingLot(lot)">
+        {{lot}} - {{parkingLot().get(lot)?.car?.name}} - {{parkingLot().get(lot)?.car?.type | titlecase }}
+      </div>
+      <ng-template #emptySpace>
+        {{lot}} - {{parkingLot().get(lot)?.type | titlecase }}
+      </ng-template>
+    </div>
+  </div>
+  <div class="cars">
+    <div *ngFor="let car of cars().values()" class="car" (click)="addCarToParkingLot(car)" >
+      {{car.name}} - {{car.type | titlecase }}
+    </div>
+  </div>
+</div>
