@@ -14,7 +14,8 @@
   <div class="cars" *ngIf="!isParkingFree(); else fullParkingLot" >
     <div *ngFor="let car of cars().values()"
          class="car"
-         [ngClass]="availableParkingLotsByType(car?.type) ? '' : 'disabled'"
+         [ngClass]="(car.type === CarType.gas && isGasParkingFree()) ||
+                    (car.type === CarType.electric && isElectricParkingFree()) ? '' : 'disabled'"
          (click)="addCarToParkingLot(car)" >
       {{car.name}} - {{car.type | titlecase }}
     </div>

@@ -15,11 +15,15 @@ import {CarLotComponent} from "./car-lot/car-lot.component";
 })
 export class ParkingLotComponent {
 
+  protected readonly CarType = CarType;
+
   public cars = signal(new Set<Car>());
 
   public parkingLot = signal(new Map<number, ParkingLot>());
 
   public isParkingFree = computed(() => [...this.parkingLot().values()].find(val => val.car === null) === undefined);
+  public isElectricParkingFree = computed(() => [...this.parkingLot().values()].find(val => val.car === null && val.type === CarType.electric) === undefined);
+  public isGasParkingFree = computed(() => [...this.parkingLot().values()].find(val => val.car === null && val.type === CarType.gas) === undefined);
   public remainingParkingLots = computed(() => [...this.parkingLot().values()].filter(val => val.car === null).length);
 
   constructor() {
@@ -46,10 +50,6 @@ export class ParkingLotComponent {
       parkingLot.set(lot, { type: parkingLot.get(lot)?.type!, car: null });
       this.cars().add(car);
     })
-  }
-
-  availableParkingLotsByType(type: CarType | undefined) {
-    return [...this.parkingLot().values()].filter(val => val.type === type && val.car === null).length
   }
 
   private initializeData() {
