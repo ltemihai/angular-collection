@@ -1,0 +1,61 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 300px); /* Adjust the width of each cell as needed */
+  grid-gap: 10px; /* Adjust the gap between cells as needed */
+  text-align: center;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+}
+
+.grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; /* Adjust the height of each cell as needed */
+  background-color: #ccc;
+  border-radius: 5px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.cars {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+  .car {
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 24px;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+
+    width: 200px ;
+    text-align: center;
+    border: black solid 1px;
+    background-color: #007bff;
+    color: white;
+  }
+}
+
+.occupied {
+  background-color: lightgreen;
+  cursor: pointer;
+}
+
+.full-park {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.disabled {
+  background-color: #ccc !important;
+  color: #000 !important;
+  pointer-events: none;
+}
