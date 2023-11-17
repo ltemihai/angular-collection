@@ -1,0 +1,9 @@
+<div class="header">
+  <h2>ngRx Shop</h2>
+  <div class="checkout" *ngIf="basketTotalItems$ | async as totalItems">
+    <mat-icon>shopping_cart</mat-icon>
+    <div [ngClass]="{'red': totalItems !== 0}"
+         class="item-price" >{{totalItems}}</div>
+    <button mat-button (click)="openCheckout()">Checkout</button>
+  </div>
+</div>

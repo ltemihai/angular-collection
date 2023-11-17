@@ -7,3 +7,14 @@
   font-family: Roboto /* Replace with your custom font */, sans-serif !important;
   /* Add !important to overwrite all elements */
 }
+
+mat-icon {
+  font-family: 'Material Icons' !important;
+}
+
+.cdk-overlay-container {
+  position: fixed;
+  top: 0;
+  right: 50%;
+  left: 50%;
+}
