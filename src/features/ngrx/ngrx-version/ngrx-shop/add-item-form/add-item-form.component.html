@@ -16,6 +16,6 @@
       <input matInput type="text" formControlName="description">
     </mat-form-field>
 
-    <button mat-button class="add-to-basket-button" type="submit">Add</button>
+    <button mat-button class="add-to-basket-button" type="submit" [disabled]="!form.valid">Add</button>
   </form>
 </div>
