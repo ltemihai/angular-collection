@@ -1,12 +1,12 @@
 import {bootstrapApplication} from '@angular/platform-browser'
 import {provideRouter, Routes} from '@angular/router';
 import {AppComponent} from "./app/app.component";
-import {EffectsModule} from "@ngrx/effects";
+import {provideEffects} from "@ngrx/effects";
 import {ShopListEffects} from "./features/ngrx/ngrx-version/store/shopList.effects";
-import {StoreModule} from "@ngrx/store";
+import {provideStore} from "@ngrx/store";
 import {shopItemsReducer} from "./features/ngrx/ngrx-version/store/shopList.reducer";
 import {importProvidersFrom} from "@angular/core";
-import {StoreDevtoolsModule} from "@ngrx/store-devtools";
+import {provideStoreDevtools} from "@ngrx/store-devtools";
 import {basketItemsReducer} from "./features/ngrx/ngrx-version/store/basket.reducers";
 import {BasketEffects} from "./features/ngrx/ngrx-version/store/basket.effects";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -28,17 +28,12 @@ bootstrapApplication(AppComponent, {
     importProvidersFrom(
       BrowserAnimationsModule,
       MatSnackBarModule,
-
-      StoreModule.forRoot({}),
-      StoreModule.forFeature('shop', shopItemsReducer),
-      StoreModule.forFeature('basket', basketItemsReducer),
-      EffectsModule.forRoot([]),
-      EffectsModule.forFeature(ShopListEffects),
-      EffectsModule.forFeature(BasketEffects),
-      StoreDevtoolsModule.instrument({
-        maxAge: 25, // Retains last 25 states
-        logOnly: false, // Restrict extension to log-only mode
-      }),
-    )
+    ),
+    provideStore({
+      shop: shopItemsReducer,
+      basket: basketItemsReducer,
+    }),
+    provideEffects([ShopListEffects, BasketEffects]),
+    provideStoreDevtools({ maxAge: 25, logOnly: false }),
   ]
 })
