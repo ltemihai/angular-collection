@@ -1,0 +1,18 @@
+<app-service-basket-status>
+
+</app-service-basket-status>
+
+<div class="shop-container">
+  <div *ngFor="let item of items$ | async" (click)="addItemToBasket(item)" class="item-card">
+    <div class="item-name">{{item.name}}</div>
+    <div class="item-price">{{item.price}}</div>
+  </div>
+</div>
+
+<app-service-add-item-form>
+
+</app-service-add-item-form>
+
+<app-service-shopping-basket *ngIf="isCheckoutOpen$ | async">
+
+</app-service-shopping-basket>

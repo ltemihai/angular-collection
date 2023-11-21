@@ -1,0 +1,31 @@
+.basket-container {
+  width: 400px;
+  padding: 2rem;
+  background-color: #b8b6b6;
+  color: #000;
+  border-radius: 1rem;
+}
+
+.item {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+  border-bottom: 1px solid #fff;
+}
+
+.remove {
+  margin-left: 1rem;
+  background-color: red;
+}
+
+.finish-checkout {
+  background-color: lightseagreen;
+}
+
+.checkout-row {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+  justify-content: space-between;
+}
