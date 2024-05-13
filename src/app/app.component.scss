@@ -1,3 +1,16 @@
-mat-sidenav-container {
+mat-sidenav {
+  overflow-y: hidden;
   min-height: 100vh;
+  position: fixed;
+}
+
+.nav-button {
+  position: fixed;
+}
+
+.container {
+  margin-top: 48px;
+  overflow-y: scroll;
+  height: 100%;
+  width: 100%;
 }
