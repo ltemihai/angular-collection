@@ -18,3 +18,27 @@ mat-icon {
   right: 50%;
   left: 50%;
 }
+
+@import '@angular/material/theming';
+
+// Include the common styles for Angular Material. Only include once.
+@include mat-core();
+
+// Define the custom palettes
+$my-app-primary: mat-palette($mat-indigo);
+$my-app-accent: mat-palette($mat-pink, A200, A100, A400);
+$my-app-warn: mat-palette($mat-red);
+
+// Create the theme object (including all color configurations)
+$my-app-theme: mat-light-theme(
+    (
+      color: (
+        primary: $my-app-primary,
+        accent: $my-app-accent,
+        warn: $my-app-warn
+      )
+    )
+);
+
+// Include theme styles for core and each component used in your app.
+@include angular-material-theme($my-app-theme);

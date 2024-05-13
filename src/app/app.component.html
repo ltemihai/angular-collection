@@ -1,1 +1,23 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" opened="true">
+    <div class="m-4">
+      <p>Angular collection</p>
+      <mat-nav-list role="list">
+        <mat-list-item role="listitem" [routerLink]="['factory-async']">Async Factories</mat-list-item>
+        <mat-list-item role="listitem" [routerLink]="['signals']">Signals - Parking Lot Example</mat-list-item>
+        <mat-list-item role="listitem" [routerLink]="['ngrx']">ngRx Shop</mat-list-item>
+      </mat-nav-list>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="pl-4 pr-4 pt-4">
+      <button class="nav-button" mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+    <div class="p-8">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
