@@ -34,6 +34,6 @@ bootstrapApplication(AppComponent, {
       basket: basketItemsReducer,
     }),
     provideEffects([ShopListEffects, BasketEffects]),
-    provideStoreDevtools({ maxAge: 25, logOnly: false }),
+    provideStoreDevtools({ maxAge: 25, logOnly: false , connectInZone: true}),
   ]
 })

@@ -35,20 +35,22 @@ export class ParkingLotComponent {
   }
 
   addCarToParkingLot(car: Car) {
-    this.parkingLot.mutate((parkingLot) => {
+    this.parkingLot.update((parkingLot: Map<number, ParkingLot>) => {
       const firstNullValue = [...parkingLot.values()].find(val => val.car === null && val.type === car.type);
       if (firstNullValue) {
         firstNullValue.car = car;
         this.cars().delete(car);
       }
+      return this.parkingLot()
     })
   }
 
   removeCarFromParkingLot(lot: number) {
-    this.parkingLot.mutate((parkingLot) => {
+    this.parkingLot.update((parkingLot: Map<number, ParkingLot>) => {
       const car = parkingLot.get(lot)?.car!;
       parkingLot.set(lot, { type: parkingLot.get(lot)?.type!, car: null });
       this.cars().add(car);
+      return parkingLot;
     })
   }
 
