@@ -1,0 +1,14 @@
+<div *ngIf="status$ | async as status">
+  <p *ngIf="status===ConnectionStatus.Online; else offline">
+    You're online!
+  </p>
+
+
+
+</div>
+
+<ng-template #offline>
+  <p>
+    You're offline!
+  </p>
+</ng-template>
